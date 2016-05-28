@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   root "pages#index"
+  resources :recipes
 end
