@@ -1,0 +1,12 @@
+.col-md-1
+  %div.swag{:style => "padding: 15px"}
+    = link_to "#", :class => "btn btn-primary col-md-12" do
+      %i.fa.fa-caret-up
+    Votes
+.col-md-11
+  .panel.panel-default
+    .panel-heading
+      %strong
+        = recipe.title
+    .panel-body
+      = recipe.tagline

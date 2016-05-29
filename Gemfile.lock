@@ -37,9 +37,14 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    autoprefixer-rails (6.3.3.1)
+      execjs
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.4)
     coderay (1.1.1)
@@ -63,10 +68,13 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.7.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    font-awesome-rails (4.6.3.0)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -206,10 +214,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   byebug
   coffee-rails
   config
   devise
+  dynamic_form
+  font-awesome-rails
   haml
   haml-rails
   jbuilder

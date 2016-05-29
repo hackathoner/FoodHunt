@@ -13,8 +13,12 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'bootstrap-sass'
 gem 'haml'
 gem 'haml-rails'
+gem 'dynamic_form'
+gem "font-awesome-rails"
+
 
 group :development, :test do
   gem 'byebug'
