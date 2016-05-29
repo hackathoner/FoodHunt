@@ -1,8 +1,17 @@
 .col-md-1
   %div.swag{:style => "padding: 15px"}
-    = link_to "javascript:void(0)", :class => "btn btn-primary col-md-12" do
-      %i.fa.fa-caret-up
-    %p
+    - if current_user
+      - if current_user.voted?(recipe)
+        = link_to toggle_vote_path(:id => recipe.id, :voted => true ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-success col-md-12 vote" do
+          %i.fa.fa-caret-up
+      - else
+        = link_to toggle_vote_path(:id => recipe.id, :voted => false ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-primary col-md-12 vote" do
+          %i.fa.fa-caret-up
+
+    - else
+      = link_to new_user_session_path, :class => "btn btn-primary col-md-12 " do
+        %i.fa.fa-caret-up
+    %p.votes{:id => "#{recipe.id}"}
       = recipe.votes.count
 .col-md-11
   .panel.panel-default

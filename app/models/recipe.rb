@@ -7,4 +7,8 @@ class Recipe < ActiveRecord::Base
   validates :tagline,  :presence => true
   validates :link,     :presence => true
   validates :user,     :presence => true
+
+  def self.ordered
+
+  end
 end
