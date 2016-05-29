@@ -1,22 +1,26 @@
-.col-md-1
-  %div.swag{:style => "padding: 15px"}
-    - if current_user
-      - if current_user.voted?(recipe)
-        = link_to toggle_vote_path(:id => recipe.id, :voted => true ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-success col-md-12 vote" do
-          %i.fa.fa-caret-up
-      - else
-        = link_to toggle_vote_path(:id => recipe.id, :voted => false ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-primary col-md-12 vote" do
-          %i.fa.fa-caret-up
+.recipe-group
+  .col-md-1
 
-    - else
-      = link_to new_user_session_path, :class => "btn btn-primary col-md-12 " do
-        %i.fa.fa-caret-up
-    %p.votes{:id => "#{recipe.id}"}
-      = recipe.votes.count
-.col-md-11
-  .panel.panel-default
-    .panel-heading
-      %strong
-        = recipe.title
-    .panel-body
-      = recipe.tagline
+  .col-md-11
+    .panel.panel-default
+      .panel-heading
+        %strong
+          = recipe.title
+        %p.pull-right
+          %strong
+            .votes.pull-right{:id => "#{recipe.id}"}
+              = recipe.votes.count
+            .pull-right{:style => "margin-right: 5px"}
+              Votes:
+
+      .panel-body
+        = recipe.tagline
+        %div.swag.pull-right{:style => "margin-left: 10px;"}
+          - if current_user
+            - if current_user.voted?(recipe)
+              = link_to "Unvote", toggle_vote_path(:id => recipe.id, :voted => true ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-success col-md-12 vote"
+            - else
+              = link_to "Vote", toggle_vote_path(:id => recipe.id, :voted => false ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-primary col-md-12 vote"
+          - else
+            = link_to new_user_session_path, :class => "btn btn-primary col-md-12 "
+        = link_to "Try it out", recipe.link, :class => "btn btn-info pull-right"

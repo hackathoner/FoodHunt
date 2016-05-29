@@ -11,4 +11,8 @@ class Recipe < ActiveRecord::Base
   def self.ordered
     order("votes_count DESC")
   end
+
+  def self.filter_by_date(start_date, end_date)
+    where(:created_at => start_date.to_time..end_date.to_time)
+  end
 end
