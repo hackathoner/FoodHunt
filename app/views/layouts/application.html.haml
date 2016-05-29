@@ -8,6 +8,7 @@
     = csrf_meta_tags
   %body
     = render "shared/navbar"
-    %p.notice= notice
-    %p.alert= alert
+    .container
+      %p.notice.alert-dismissible.alert-warning= notice
+      %p.alert= alert
     = yield
