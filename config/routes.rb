@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => {:sessions => "sessions", :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :skip => [:sessions]
 
-  devise_scope :user do
-    match "login",  :to => "sessions#new",     :via => :get,    :as => :new_user_session
+  as :user do
+    match "login",  :to => "sessions#new",     :via => :get, :as => :new_user_session
     match "logout", :to => "sessions#destroy", :via => :delete, :as => :destroy_user_session
   end
 
