@@ -17,13 +17,14 @@ ActiveRecord::Schema.define(version: 20160529031931) do
   enable_extension "plpgsql"
 
   create_table "recipes", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "tagline",    null: false
-    t.string   "link",       null: false
+    t.string   "title",                   null: false
+    t.string   "tagline",                 null: false
+    t.string   "link",                    null: false
     t.string   "image"
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "votes_count", default: 0
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree

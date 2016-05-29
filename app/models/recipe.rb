@@ -9,6 +9,6 @@ class Recipe < ActiveRecord::Base
   validates :user,     :presence => true
 
   def self.ordered
-
+    order("votes_count DESC")
   end
 end

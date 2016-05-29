@@ -5,6 +5,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.string      :tagline,  :null => false
       t.string      :link,     :null => false
       t.string      :image
+      t.integer     :votes_count, :default => 0
 
       t.belongs_to  :user,     :null => false, :index => true
 

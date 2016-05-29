@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.ordered
   end
 end
