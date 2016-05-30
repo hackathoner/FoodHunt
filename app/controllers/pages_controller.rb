@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   def paginate
     @date = Date.parse(params["date"])
     @recipes = Recipe.where("DATE(created_at) = ?", @date).ordered
-    # binding.pry
+
     respond_to do |format|
       format.js { render layout: false, content_type: 'text/javascript' }
     end
@@ -18,8 +18,7 @@ class PagesController < ApplicationController
     @query = params[:q]
 
     if @query.empty?
-      @recipes = Recipe.all
-      @date    = Date.today
+      @recipes = Recipe.ordered
     else
       @recipes = Recipe.fuzzy_search(@query)
     end

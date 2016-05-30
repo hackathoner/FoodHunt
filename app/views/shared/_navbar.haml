@@ -14,7 +14,8 @@
         = text_field_tag :search, nil, :placeholder => "Search for a recipe...", :class => "form-control pull-left", :style => "margin: 7px; ", :size => "100", :id => "search"
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to "+ Post a new recipe", new_recipe_path
+          .form-group
+            = link_to "+ Post a new recipe", new_recipe_path, :class => "btn btn-warning form-control", :style => "margin-top:10px; "
         - if current_user
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
