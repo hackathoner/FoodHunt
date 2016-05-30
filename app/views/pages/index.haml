@@ -1,11 +1,3 @@
 .container
-  .page-header
-    .row
-      %h1
-        Today
-        = link_to 'Previous Day', paginate_recipes_path(:date => @date.prev_day, :dir => :past), :remote => true, :class => "btn btn-default pull-right"
-        - if @date < Date.today
-          = link_to 'Next Day', paginate_recipes_path(:date => @date.next_day, :dir => :future), :remote => true, :class => "btn btn-default pull-right", :style => "margin-right: 10px"
-  #recipes
-    = render "recipes"
-  .row
+  = render "recipes"
+  

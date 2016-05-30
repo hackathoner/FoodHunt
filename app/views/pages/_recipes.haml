@@ -1,2 +1,15 @@
-.row
-  = render @recipes
+#recipes
+  .page-header
+    .row
+      %h1#header
+        - if @date == Date.today
+          Today
+        - elsif @date == Date.yesterday
+          Yesterday
+        - else
+          = @date.strftime("%B #{@date.day.ordinalize}")
+        = link_to 'Previous Day', paginate_path(:date => @date.prev_day, :dir => :past), :remote => true, :class => "btn btn-default pull-right paginators"
+        - if @date < Date.today
+          = link_to 'Next Day', paginate_path(:date => @date.next_day, :dir => :future), :remote => true, :class => "btn btn-default pull-right paginators", :style => "margin-right: 10px"
+  .row
+    = render @recipes

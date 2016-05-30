@@ -10,9 +10,7 @@ class PagesController < ApplicationController
     @recipes = Recipe.where("DATE(created_at) = ?", @date).ordered
     # binding.pry
     respond_to do |format|
-      format.js { render :layout => false }
-      format.html { render :action => "index" }
-      format.json { render :action => "index" }
+      format.js { render layout: false, content_type: 'text/javascript' }
     end
   end
 end

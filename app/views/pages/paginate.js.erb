@@ -1,4 +1,4 @@
-$("#recipes").html ""
-$("#recipes").html "<%= j render(:partial => 'recipes') %>"
-$(".notice").html("Paginated")
-console.log "hello"
+$("#recipes").fadeOut("slow", function() {
+  $("#recipes").html("<%= j render(:partial => 'recipes') %>")
+})
+$("#recipes").fadeIn("slow")
