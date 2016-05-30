@@ -1,9 +1,9 @@
-#recipes
+#content
   .page-header
     .row
       %h1#header
         = "Search results for \"#{@query}\""
-        = link_to 'Back', root_path, :class => "btn btn-default pull-right paginators"
+        = link_to 'Back', "", :class => "btn btn-default pull-right paginators"
 
   .row
     = render @recipes

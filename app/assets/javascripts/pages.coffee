@@ -9,7 +9,7 @@ class Pages
 
     @document.on "ajax:success",  @voting_buttons, @successfulVote
     @document.on "ajax:error",    @voting_buttons, @errorVote
-    @document.on "input",         @search_field,   @searchRecipes
+    @search_field.on "input",     @searchRecipes
 
   searchRecipes: =>
     query = @search_field.val()

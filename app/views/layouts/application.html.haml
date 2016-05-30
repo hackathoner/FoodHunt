@@ -10,4 +10,5 @@
     = render "shared/navbar"
     .notices{:style => "margin: 10px;"}
       %p.notice.alert-dismissible.alert-warning= notice
-    = yield
+    #content.container
+      = yield
