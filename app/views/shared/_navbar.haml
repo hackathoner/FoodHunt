@@ -11,7 +11,7 @@
         = link_to "Foodhunt", root_path,  :class => "navbar-brand"
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       .nav.navbar-nav.navbar-left
-        = text_field_tag :search, nil, :placeholder => "Search for a recipe...", :class => "form-control pull-left", :style => "margin: 7px; ", :size => "100"
+        = text_field_tag :search, nil, :placeholder => "Search for a recipe...", :class => "form-control pull-left", :style => "margin: 7px; ", :size => "100", :id => "search"
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to "+ Post a new recipe", new_recipe_path

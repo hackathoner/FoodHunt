@@ -1,0 +1,6 @@
+$("#header").text("Search results for \"#{@query}\"")
+<% if @query.empty? %>
+  $("#recipes").html("<%= j render(:partial => 'recipes') %>")
+<% else %>
+  $("#recipes").html("<%= j render(:partial => 'search') %>")
+<% end %>

@@ -13,4 +13,20 @@ class PagesController < ApplicationController
       format.js { render layout: false, content_type: 'text/javascript' }
     end
   end
+
+  def search
+    @query = params[:q]
+
+    if @query.empty?
+      @recipes = Recipe.all
+      @date    = Date.today
+    else
+      @recipes = Recipe.fuzzy_search(@query)
+    end
+
+    respond_to do |format|
+      format.js { render layout: false, content_type: 'text/javascript'}
+      format.json {}
+    end
+  end
 end

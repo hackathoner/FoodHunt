@@ -5,9 +5,22 @@ class Pages
     @recipe_groups   = @element.find(".recipe_group")
     @voting_buttons  = @element.find(".vote")
     @errors          = @element.find(".notice")
+    @search_field    = @element.find("#search")
 
     @document.on "ajax:success",  @voting_buttons, @successfulVote
     @document.on "ajax:error",    @voting_buttons, @errorVote
+    @document.on "input",         @search_field,   @searchRecipes
+
+  searchRecipes: =>
+    query = @search_field.val()
+    @sendRequest(query)
+
+  sendRequest: (query) =>
+    $.ajax
+      url: "/search"
+      data: { q: query }
+      success: (console.log "hello")
+      dataType: "script"
 
   successfulVote: (e, data, status, xhr) =>
     @count = $("#" + data.recipe)

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :recipes
 
   get :paginate, :as => :paginate, :to => "pages#paginate"
+  get :search,   :as => :search,   :to => "pages#search"
 
   resources :votes, :only => [] do
     post :toggle,   :on => :member, :as => :toggle
