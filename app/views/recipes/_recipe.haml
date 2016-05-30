@@ -1,26 +1,23 @@
-.recipe-group
-  .col-md-1
-
-  .col-md-11
-    .panel.panel-default
-      .panel-heading
+.col-md-12
+  .panel.panel-default
+    .panel-heading
+      %strong
+        = recipe.title
+      %p.pull-right
         %strong
-          = recipe.title
-        %p.pull-right
-          %strong
-            .votes.pull-right{:id => "#{recipe.id}"}
-              = recipe.votes.count
-            .pull-right{:style => "margin-right: 5px"}
-              Votes:
+          .votes.pull-right{:id => "#{recipe.id}"}
+            = recipe.votes.count
+          .pull-right{:style => "margin-right: 5px"}
+            Votes:
 
-      .panel-body
-        = recipe.tagline
-        %div.swag.pull-right{:style => "margin-left: 10px;"}
-          - if current_user
-            - if current_user.voted?(recipe)
-              = link_to "Unvote", toggle_vote_path(:id => recipe.id, :voted => true ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-success col-md-12 vote"
-            - else
-              = link_to "Vote", toggle_vote_path(:id => recipe.id, :voted => false ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-primary col-md-12 vote"
+    .panel-body
+      = recipe.tagline
+      %div.swag.pull-right{:style => "margin-left: 10px;"}
+        - if current_user
+          - if current_user.voted?(recipe)
+            = link_to "Unvote", toggle_vote_path(:id => recipe.id, :voted => true ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-success col-md-12 vote"
           - else
-            = link_to new_user_session_path, :class => "btn btn-primary col-md-12 "
-        = link_to "Try it out", recipe.link, :class => "btn btn-info pull-right"
+            = link_to "Vote", toggle_vote_path(:id => recipe.id, :voted => false ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-primary col-md-12 vote"
+        - else
+          = link_to new_user_session_path, :class => "btn btn-primary col-md-12 "
+      = link_to "Try it out", recipe.link, :class => "btn btn-info pull-right"

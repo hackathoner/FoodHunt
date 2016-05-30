@@ -209,6 +209,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.1.0)
 
 PLATFORMS
   ruby
@@ -236,6 +237,7 @@ DEPENDENCIES
   spring
   uglifier
   web-console
+  will_paginate
 
 BUNDLED WITH
    1.11.2

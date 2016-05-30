@@ -8,6 +8,7 @@ gem 'config'
 gem 'powder'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'will_paginate'
 
 gem 'sass-rails'
 gem 'uglifier'
