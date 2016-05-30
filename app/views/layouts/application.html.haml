@@ -8,7 +8,6 @@
     = csrf_meta_tags
   %body
     = render "shared/navbar"
-    .container
+    .notices{:style => "margin: 10px;"}
       %p.notice.alert-dismissible.alert-warning= notice
-      %p.alert= alert
     = yield

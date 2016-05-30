@@ -19,6 +19,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'dynamic_form'
 gem "font-awesome-rails"
+gem 'bootswatch-rails'
 
 
 group :development, :test do

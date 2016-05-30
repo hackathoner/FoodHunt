@@ -19,5 +19,5 @@
           - else
             = link_to "Vote", toggle_vote_path(:id => recipe.id, :voted => false ), :remote => true, :method => :post, :id => "vote-#{recipe.id}", :class => "btn btn-primary col-md-12 vote"
         - else
-          = link_to new_user_session_path, :class => "btn btn-primary col-md-12 "
+          = link_to "Vote", new_user_session_path, :class => "btn btn-primary col-md-12 "
       = link_to "Try it out", recipe.link, :class => "btn btn-info pull-right"

@@ -21,7 +21,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string   :name
       t.string   :username
-      
+      t.string   :image
+
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
