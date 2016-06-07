@@ -15,3 +15,6 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+//= require validations/recipe_validator
