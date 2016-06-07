@@ -1,5 +1,6 @@
 - if @recipe.errors.messages[:user]
   %p.notice.alert-dismissible.alert-warning{:style => "padding: 10px"}
+    - binding.pry
     = @recipe.errors.messages[:user].first
 
 = form_for @recipe, :html => { :class => "form-horizontal" } do |f|

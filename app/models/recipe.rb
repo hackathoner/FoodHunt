@@ -3,12 +3,15 @@ class Recipe < ActiveRecord::Base
   belongs_to :user
   has_many   :votes
 
-  validates :title,    :presence => true
-  validates :tagline,  :presence => true
+  validates :title,    :presence => true, :length  => { :maximum => 255 }
+  validates :tagline,  :presence => true, :length  => { :maximum => 255 }
   validates :link,     :presence => true
   validates :user,     :presence => true
 
   validate  :user_under_limit?
+
+  validates_format_of :link, :with => /\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z/i,   :message => "Please use a valid url"
+  validates_format_of :image, :with => /\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z/i,  :message => "Please use a valid url", :allow_nil => true
 
   def self.ordered
     order("votes_count DESC")
