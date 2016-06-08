@@ -23,6 +23,8 @@
               %i.fa.fa-caret-down
             %ul.dropdown-menu
               %li
+                = link_to "Account Settings", edit_user_path(current_user)
+              %li
                 = link_to "Logout", destroy_user_session_path, :method => :delete
         - else
           %li

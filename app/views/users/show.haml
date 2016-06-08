@@ -1,0 +1,20 @@
+.row
+  .col-md-6.col-md-offset-5
+    = image_tag @user.image, :width => 150, :height => 150, :style => "border-radius: 50%;"
+    
+.job
+  - if @user.job?
+    = @user.job
+  - elsif @user == current_user
+    = link_to "Add a job", edit_user_path(@user), :style => "text-align: center"
+  - else
+
+.name
+  = @user.name
+
+.row
+  %h1 Submitted
+  = render @user.submitted
+.row
+  %h1 Voted
+  = render @user.voted
