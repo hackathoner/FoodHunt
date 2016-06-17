@@ -18,3 +18,4 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require validations/recipe_validator
+//= require validations/user_validator

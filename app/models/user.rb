@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.name      = auth.info.name
       user.email     = auth.info.email
-      user.image     = auth.info.image
+      user.image     = auth.info.image + "?type=large"
       user.password  = Devise.friendly_token[0,20]
     end
   end
